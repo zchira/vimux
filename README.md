@@ -5,7 +5,7 @@ Just few config files for Vim and tmux
 Install tmux package manager
 https://github.com/tmux-plugins/tpm
 
-## What?
+## What and how ?
 
 ###tmux
 
