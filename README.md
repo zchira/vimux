@@ -2,8 +2,19 @@
 
 Just few config files for Vim and tmux
 
+## Installation
+
+Copy (or pull) all files to your ~.
+
 Install tmux package manager
 https://github.com/tmux-plugins/tpm
+
+Start tmux with:
+
+tmux -2
+
+< prefix > + I   -> install plugins from .tmux.conf
+
 
 ## What and how ?
 
