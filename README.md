@@ -10,6 +10,7 @@ https://github.com/tmux-plugins/tpm
 ###tmux
 
 < prefix > + s   -> save state
+
 < prefix > + r   -> restore state
 
 ###vim
