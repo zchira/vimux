@@ -1,3 +1,15 @@
+set t_Co=256
+set t_ut=
+
+if has("termguicolors")
+   set termguicolors
+endif
+
+syntax on
+
+" highlight last search
+set hlsearch
+
 set encoding=utf-8
 set list
 set listchars=tab:▸\ ,eol:¬
