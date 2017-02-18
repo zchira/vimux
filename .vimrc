@@ -5,8 +5,6 @@ if has("termguicolors")
    set termguicolors
 endif
 
-syntax on
-
 " highlight last search
 set hlsearch
 
@@ -14,8 +12,10 @@ set encoding=utf-8
 set list
 set listchars=tab:▸\ ,eol:¬
 set number
-colorscheme minimalist
+colorscheme molokai
 set tabstop=4
+
+syntax on
 
 " gr comman for find all references of current word
 nnoremap gr :vimgrep <cword> **/*.html **/*.py<CR>:cw<CR>
