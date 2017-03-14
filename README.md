@@ -15,6 +15,13 @@ tmux -2
 
 < prefix > + I   -> install plugins from .tmux.conf
 
+### Install vim-plug
+
+https://github.com/junegunn/vim-plug
+
+Start vim and type:
+:PlugInstall
+
 
 ## What and how ?
 

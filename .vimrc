@@ -27,3 +27,18 @@ endif
 nnoremap gr :vimgrep <cword> **/*.html **/*.py<CR>:cw<CR>
 nnoremap <F7> :cp<CR>
 nnoremap <F8> :cn<CR>
+
+
+" vim-plug section
+call plug#begin('~/.vim/plugged')
+
+" vim-jedi
+" Plug 'https://github.com/davidhalter/jedi-vim.git'
+
+" python-mode
+Plug 'https://github.com/python-mode/python-mode.git'
+
+call plug#end()
+
+let g:pymode_folding = 0
+
