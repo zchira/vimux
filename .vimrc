@@ -38,6 +38,11 @@ call plug#begin('~/.vim/plugged')
 " python-mode
 Plug 'https://github.com/python-mode/python-mode.git'
 
+" Javascript-liraries
+Plug 'othree/javascript-libraries-syntax.vim'
+
+Plug 'darthmall/vim-vue'
+
 call plug#end()
 
 let g:pymode_folding = 0
