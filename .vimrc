@@ -15,7 +15,7 @@ colorscheme distinguished
 " colorscheme molokai
 " colorscheme spring-night
 
-set tabstop=4
+set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
 set expandtab
 
 syntax on
