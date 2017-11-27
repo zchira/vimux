@@ -11,8 +11,7 @@ set listchars=tab:▸\ ,eol:¬,trail:·
 
 set number
 
-colorscheme distinguished
-" colorscheme molokai
+" colorscheme distinguished
 " colorscheme spring-night
 
 set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
@@ -52,7 +51,14 @@ Plug 'andviro/flake8-vim'
 
 " Javascript-liraries
 Plug 'othree/javascript-libraries-syntax.vim'
-Plug 'darthmall/vim-vue'
+" Plug 'darthmall/vim-vue'
+Plug 'othree/yajs.vim'
+
+" eslint
+Plug 'sekel/vim-vue-syntastic'
+Plug 'vim-syntastic/syntastic'
+Plug 'posva/vim-vue'
+
 
 " fzf
 Plug 'junegunn/fzf'
@@ -65,7 +71,23 @@ Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
+" themes
+Plug 'ayu-theme/ayu-vim'
+Plug 'exitface/synthwave.vim'
 call plug#end()
 
 let g:pymode_folding = 0
 
+" ESlint 
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_vue_checkers = ['eslint']
+let local_eslint = finddir('node_modules', '.;') . '/.bin/eslint'
+if matchstr(local_eslint, "^\/\\w") == ''
+    let local_eslint = getcwd() . "/" . local_eslint
+endif
+if executable(local_eslint)
+    let g:syntastic_javascript_eslint_exec = local_eslint
+    let g:syntastic_vue_eslint_exec = local_eslint
+endif
+
+colorscheme synthwave
