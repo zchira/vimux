@@ -76,7 +76,7 @@ Plug 'ayu-theme/ayu-vim'
 Plug 'exitface/synthwave.vim'
 call plug#end()
 
-let g:pymode_folding = 0
+" let g:pymode_folding = 0
 
 " ESlint 
 let g:syntastic_javascript_checkers = ['eslint']
@@ -90,4 +90,6 @@ if executable(local_eslint)
     let g:syntastic_vue_eslint_exec = local_eslint
 endif
 
-colorscheme synthwave
+" colorscheme synthwave
+colorscheme distinguished
+set colorcolumn=80
