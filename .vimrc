@@ -19,6 +19,9 @@ set expandtab
 
 syntax on
 
+" set hlsearch and incsearch
+set hls is
+
 if has("termguicolors")
    set termguicolors
 endif
@@ -40,7 +43,7 @@ nnoremap <C-n> :NERDTreeToggle<CR>
 call plug#begin('~/.vim/plugged')
 
 " vim-jedi
-" Plug 'https://github.com/davidhalter/jedi-vim.git'
+Plug 'https://github.com/davidhalter/jedi-vim.git'
 
 " python-mode
 " Plug 'https://github.com/python-mode/python-mode.git'
@@ -71,9 +74,13 @@ Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
+
 " themes
 Plug 'ayu-theme/ayu-vim'
 Plug 'exitface/synthwave.vim'
+Plug 'elmindreda/vimcolors'
+Plug 'JarrodCTaylor/spartan'
+Plug 'tomasiser/vim-code-dark'
 call plug#end()
 
 " let g:pymode_folding = 0
@@ -91,5 +98,6 @@ if executable(local_eslint)
 endif
 
 " colorscheme synthwave
-colorscheme distinguished
+" colorscheme distinguished
+colorscheme codedark
 set colorcolumn=80
