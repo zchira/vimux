@@ -32,6 +32,8 @@ set wildignore+=node_modules/**,dist/**
 nnoremap gr :vimgrep <cword> **/*.html **/*.py **/*.js **/*.vue<CR>:cw<CR>
 nnoremap <F7> :cp<CR>
 nnoremap <F8> :cn<CR>
+" tagbar
+nmap <leader>t :TagbarToggle<CR>
 " fzf commands
 nnoremap <leader>f :Files<CR>
 nnoremap <leader>l :Buffers<CR>
@@ -81,6 +83,9 @@ Plug 'exitface/synthwave.vim'
 Plug 'elmindreda/vimcolors'
 Plug 'JarrodCTaylor/spartan'
 Plug 'tomasiser/vim-code-dark'
+
+" tagbar
+Plug 'majutsushi/tagbar'
 call plug#end()
 
 " let g:pymode_folding = 0
