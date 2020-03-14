@@ -45,25 +45,33 @@ nnoremap <C-n> :NERDTreeToggle<CR>
 call plug#begin('~/.vim/plugged')
 
 " vim-jedi
-Plug 'https://github.com/davidhalter/jedi-vim.git'
+" Plug 'https://github.com/davidhalter/jedi-vim.git'
 
 " python-mode
 " Plug 'https://github.com/python-mode/python-mode.git'
 " Plug 'klen/python-mode'
 
-Plug 'andviro/flake8-vim'
+"  Plug 'andviro/flake8-vim'
 " Plug 'w0rp/ale'
 
 " Javascript-liraries
-Plug 'othree/javascript-libraries-syntax.vim'
+" Plug 'othree/javascript-libraries-syntax.vim'
 " Plug 'darthmall/vim-vue'
-Plug 'othree/yajs.vim'
+" Plug 'othree/yajs.vim'
 
 " eslint
-Plug 'sekel/vim-vue-syntastic'
-Plug 'vim-syntastic/syntastic'
-Plug 'posva/vim-vue'
+" Plug 'sekel/vim-vue-syntastic'
+" Plug 'vim-syntastic/syntastic'
+" Plug 'posva/vim-vue'
 
+" polyglot syntax highlight for all langs
+Plug 'sheerun/vim-polyglot'
+
+" eslint
+Plug 'dense-analysis/ale'
+
+" autocomplete
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " fzf
 Plug 'junegunn/fzf'
@@ -91,16 +99,13 @@ call plug#end()
 " let g:pymode_folding = 0
 
 " ESlint 
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_vue_checkers = ['eslint']
-let local_eslint = finddir('node_modules', '.;') . '/.bin/eslint'
-if matchstr(local_eslint, "^\/\\w") == ''
-    let local_eslint = getcwd() . "/" . local_eslint
-endif
-if executable(local_eslint)
-    let g:syntastic_javascript_eslint_exec = local_eslint
-    let g:syntastic_vue_eslint_exec = local_eslint
-endif
+" call <Plug>ALEComplete
+
+let g:ale_sign_error = '❌'
+let g:ale_sign_warning = '⚠️'
+nmap <silent> [c <Plug>(ale_previous_wrap)
+nmap <silent> ]c <Plug>(ale_next_wrap)
+
 
 " colorscheme synthwave
 " colorscheme distinguished
