@@ -29,7 +29,8 @@ endif
 set wildignore+=node_modules/**,dist/**
 
 " gr comman for find all references of current word
-nnoremap gr :vimgrep <cword> **/*.html **/*.py **/*.js **/*.vue<CR>:cw<CR>
+" nnoremap gr :vimgrep <cword> **/*.html **/*.py **/*.js **/*.vue<CR>:cw<CR>
+nnoremap gr :Gitgrep <cword><CR>
 nnoremap <F7> :cp<CR>
 nnoremap <F8> :cn<CR>
 " tagbar
@@ -44,25 +45,12 @@ nnoremap <C-n> :NERDTreeToggle<CR>
 " vim-plug section
 call plug#begin('~/.vim/plugged')
 
-" vim-jedi
-" Plug 'https://github.com/davidhalter/jedi-vim.git'
-
 " python-mode
 " Plug 'https://github.com/python-mode/python-mode.git'
 " Plug 'klen/python-mode'
 
 "  Plug 'andviro/flake8-vim'
 " Plug 'w0rp/ale'
-
-" Javascript-liraries
-" Plug 'othree/javascript-libraries-syntax.vim'
-" Plug 'darthmall/vim-vue'
-" Plug 'othree/yajs.vim'
-
-" eslint
-" Plug 'sekel/vim-vue-syntastic'
-" Plug 'vim-syntastic/syntastic'
-" Plug 'posva/vim-vue'
 
 " polyglot syntax highlight for all langs
 Plug 'sheerun/vim-polyglot'
@@ -84,7 +72,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
-
 " themes
 Plug 'ayu-theme/ayu-vim'
 Plug 'exitface/synthwave.vim'
@@ -94,6 +81,10 @@ Plug 'tomasiser/vim-code-dark'
 
 " tagbar
 Plug 'majutsushi/tagbar'
+
+" ack
+" Plug 'mileszs/ack.vim'
+Plug 'yegappan/grep'
 call plug#end()
 
 " let g:pymode_folding = 0
@@ -101,8 +92,9 @@ call plug#end()
 " ESlint 
 " call <Plug>ALEComplete
 
-let g:ale_sign_error = '❌'
-let g:ale_sign_warning = '⚠️'
+" let g:ale_sign_error = '❌'
+" let g:ale_sign_warning = '⚠️'
+
 nmap <silent> [c <Plug>(ale_previous_wrap)
 nmap <silent> ]c <Plug>(ale_next_wrap)
 
@@ -111,3 +103,6 @@ nmap <silent> ]c <Plug>(ale_next_wrap)
 " colorscheme distinguished
 colorscheme codedark
 set colorcolumn=80
+
+" no beep
+set noeb vb t_vb=
