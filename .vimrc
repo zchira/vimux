@@ -9,6 +9,12 @@ set encoding=utf-8
 set list
 set listchars=tab:▸\ ,eol:¬,trail:·
 
+" set hlsearch and incsearch
+" set hls is <-- fixed by sensible
+
+" backspace fix
+" set backspace=indent,eol,start <-- fixed by sensible
+
 set number
 
 " colorscheme distinguished
@@ -19,8 +25,6 @@ set expandtab
 
 syntax on
 
-" set hlsearch and incsearch
-set hls is
 
 if has("termguicolors")
    set termguicolors
@@ -45,12 +49,8 @@ nnoremap <C-n> :NERDTreeToggle<CR>
 " vim-plug section
 call plug#begin('~/.vim/plugged')
 
-" python-mode
-" Plug 'https://github.com/python-mode/python-mode.git'
-" Plug 'klen/python-mode'
-
-"  Plug 'andviro/flake8-vim'
-" Plug 'w0rp/ale'
+" defaults
+Plug 'tpope/vim-sensible'
 
 " polyglot syntax highlight for all langs
 Plug 'sheerun/vim-polyglot'
@@ -83,14 +83,8 @@ Plug 'tomasiser/vim-code-dark'
 Plug 'majutsushi/tagbar'
 
 " ack
-" Plug 'mileszs/ack.vim'
 Plug 'yegappan/grep'
 call plug#end()
-
-" let g:pymode_folding = 0
-
-" ESlint 
-" call <Plug>ALEComplete
 
 " let g:ale_sign_error = '❌'
 " let g:ale_sign_warning = '⚠️'
@@ -106,3 +100,50 @@ set colorcolumn=80
 
 " no beep
 set noeb vb t_vb=
+
+" system clipboard usage in vim (default '+' register)
+set clipboard=unnamed
+set clipboard=unnamedplus
+
+
+autocmd FileType json syntax match Comment +\/\/.\+$+
+" Coc
+
+let g:coc_global_extensions = ['coc-emoji', 'coc-eslint', 'coc-prettier','coc-tsserver', 'coc-tslint', 'coc-tslint-plugin', 'coc-css', 'coc-json', 'coc-pyls', 'coc-yaml', 'coc-vetur']
+
+" Better display for messages
+set cmdheight=2
+" Smaller updatetime for CursorHold & CursorHoldI
+set updatetime=300
+" don't give |ins-completion-menu| messages.
+set shortmess+=c
+" always show signcolumns
+set signcolumn=yes
+
+" Use `lp` and `ln` for navigate diagnostics
+nmap <silent> <leader>lp <Plug>(coc-diagnostic-prev)
+nmap <silent> <leader>ln <Plug>(coc-diagnostic-next)
+
+" Remap keys for gotos
+nmap <silent> <leader>ld <Plug>(coc-definition)
+nmap <silent> <leader>lt <Plug>(coc-type-definition)
+nmap <silent> <leader>li <Plug>(coc-implementation)
+nmap <silent> <leader>lf <Plug>(coc-references)
+
+" Remap for rename current word
+nmap <leader>lr <Plug>(coc-rename)
+
+" Use K for show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if &filetype == 'vim'
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+" Highlight symbol under cursor on CursorHold
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
