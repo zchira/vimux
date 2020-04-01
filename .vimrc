@@ -48,6 +48,8 @@ nnoremap <C-n> :NERDTreeToggle<CR>
 
 " vim-plug section
 call plug#begin('~/.vim/plugged')
+Plug 'tpope/vim-surround'
+Plug 'tomtom/tcomment_vim'
 
 " defaults
 Plug 'tpope/vim-sensible'
@@ -80,14 +82,15 @@ Plug 'JarrodCTaylor/spartan'
 Plug 'tomasiser/vim-code-dark'
 
 " tagbar
+" to generate ctags for git only files: git ls-files | ctags --links=no -L-
 Plug 'majutsushi/tagbar'
 
 " ack
 Plug 'yegappan/grep'
 call plug#end()
 
-" let g:ale_sign_error = '❌'
-" let g:ale_sign_warning = '⚠️'
+let g:ale_sign_error = '❌'
+let g:ale_sign_warning = '⚠️'
 
 nmap <silent> [c <Plug>(ale_previous_wrap)
 nmap <silent> ]c <Plug>(ale_next_wrap)
