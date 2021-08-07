@@ -4,6 +4,10 @@ set t_ut=
 " highlight last search
 set hlsearch
 
+" highlight line in insert mode
+autocmd InsertEnter * set cul
+autocmd InsertLeave * set nocul
+
 set encoding=utf-8
 
 set list
@@ -26,11 +30,11 @@ set expandtab
 syntax on
 
 
-if has("termguicolors")
-   set termguicolors
-endif
+" if has("termguicolors")
+"   set termguicolors
+" endif
 
-set wildignore+=node_modules/**,dist/**
+set wildignore+=node_modules/**,dist/**,target/**
 
 " gr comman for find all references of current word
 " nnoremap gr :vimgrep <cword> **/*.html **/*.py **/*.js **/*.vue<CR>:cw<CR>
@@ -40,9 +44,9 @@ nnoremap <F8> :cn<CR>
 " tagbar
 nmap <leader>t :TagbarToggle<CR>
 " fzf commands
-nnoremap <leader>f :Files<CR>
+nnoremap <leader>g :Files<CR>
 nnoremap <leader>l :Buffers<CR>
-nnoremap <leader>g :GFiles?<CR>
+" nnoremap <leader>g :GFiles?<CR>
 " toggle nerdTree
 nnoremap <C-n> :NERDTreeToggle<CR>
 
@@ -87,6 +91,9 @@ Plug 'majutsushi/tagbar'
 
 " ack
 Plug 'yegappan/grep'
+
+" rust debugger
+Plug 'vim-scripts/Conque-GDB'
 call plug#end()
 
 let g:ale_sign_error = '❌'
@@ -112,7 +119,7 @@ set clipboard=unnamedplus
 autocmd FileType json syntax match Comment +\/\/.\+$+
 " Coc
 
-let g:coc_global_extensions = ['coc-emoji', 'coc-eslint', 'coc-prettier','coc-tsserver', 'coc-tslint', 'coc-tslint-plugin', 'coc-css', 'coc-json', 'coc-pyls', 'coc-yaml', 'coc-vetur']
+let g:coc_global_extensions = ['coc-emoji', 'coc-eslint', 'coc-prettier','coc-tsserver', 'coc-tslint', 'coc-tslint-plugin', 'coc-css', 'coc-json', 'coc-pyls', 'coc-yaml', 'coc-vetur', 'coc-rls']
 
 " Better display for messages
 set cmdheight=2
