@@ -44,12 +44,15 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " themes
 Plug 'JarrodCTaylor/spartan'
-" Plug 'tomasiser/vim-code-dark'
+Plug 'tomasiser/vim-code-dark'
 " Plug 'rakr/vim-one'
 " Plug 'joshdick/onedark.vim'
 Plug 'sonph/onehalf', { 'rtp': 'vim' }
 " highlighting
 " Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
+
+" ack
+Plug 'yegappan/grep'
 call plug#end()
 
 syntax enable
